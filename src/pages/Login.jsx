@@ -71,7 +71,14 @@ export default function Login(){
                             <button type="submit" disabled={loading} className={`btn btn-primary ${loading?'loading':'' }`}>Login</button>
                         </div>
 
-                        <NavLink to='/signup'>signup</NavLink>
+                        <div className="text-center mt-6">
+                            <span className="text-sm">Already have an account?{' '}
+                                <NavLink to='/signup' className="link link-primary">
+                                    SignUp
+                                </NavLink>
+                            </span>
+                        </div>
+                        
 
 
                     </form>
