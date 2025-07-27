@@ -31,7 +31,11 @@ import { useEffect, useState } from 'react';
 const signupSchema = z.object({
   firstName: z.string().min(3, "Minimum character should be 3").max(20,'atmost character should be 20'),
   emailId: z.string().email("Invalid Email"),
-  password: z.string().min(8, "Password is to weak").max(57,'atmost character should be 57')
+  password: z.string()
+    .min(8, "Password is to weak")
+    .max(57,'atmost character should be 57')
+    .regex(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]).+$/, "Password must include at least one uppercase letter, one lowercase letter, and one special character")
+
 });
 
 
