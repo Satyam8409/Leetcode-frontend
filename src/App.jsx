@@ -5,13 +5,10 @@ import Signup from "./pages/Signup";
 import { checkAuth } from "./authSlice";
 import {useDispatch,useSelector} from 'react-redux';
 import { useEffect } from "react";
-// import AdminPanel from "./components/AdminPanel";
 import ProblemPage from "./pages/ProblemPage";
 import Admin from "./pages/Admin";
 import AdminPanel from "./components/AdminPanel";
 import AdminDelete from './components/AdminDelete';
-
-
 
 /*isAuthenticated
     -kavi v agar user aaya to usko ek baar check kr lete hai ki kahi o authenticated user to nhi 
@@ -38,11 +35,6 @@ import AdminDelete from './components/AdminDelete';
 function App(){
     const {isAuthenticated, loading, user}= useSelector((state)=>state.auth);
     const dispatch=useDispatch();
-
-    // console.log('check this user value');
-    // console.log(isAuthenticated);
-    // console.log(user?.role);
-    // console.log('chech this user value');
     
     useEffect(()=>{
         dispatch(checkAuth());
@@ -62,8 +54,6 @@ function App(){
                 <Route path="/" element={isAuthenticated?<Homepage></Homepage>:<Navigate to="/signup"></Navigate>}></Route>
                 <Route path="/login" element={isAuthenticated?<Navigate to="/"></Navigate>:<Login></Login>}></Route>
                 <Route path="/signup" element={isAuthenticated?<Navigate to="/"></Navigate>:<Signup></Signup>}></Route>
-                {/* <Route path="/admin" element={<AdminPanel></AdminPanel>}></Route> */}
-                {/* <Route path="/admin" element={isAuthenticated && user?.role==='admin' ? <AdminPanel></AdminPanel> : <Navigate to='/'></Navigate>}></Route> */}
                 <Route path="/admin" element={isAuthenticated && user?.role==='admin' ? <Admin></Admin> : <Navigate to='/'></Navigate>}></Route>
                 <Route path="/admin/create" element={isAuthenticated && user?.role==='admin'? <AdminPanel></AdminPanel> :<Navigate to='/'></Navigate>}></Route>
                 <Route path="/admin/delete" element={isAuthenticated && user?.role==='admin'? <AdminDelete></AdminDelete> :<Navigate to='/'></Navigate>}></Route>

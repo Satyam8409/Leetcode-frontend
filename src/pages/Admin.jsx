@@ -55,6 +55,7 @@ function Admin() {
             return (
               <div key={option.id} className="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer">
                 <div className="card-body items-center text-center p-8">
+                  
                   {/* Icon */}
                   <div className={`${option.bgColor} p-4 rounded-full mb-4`}>
                     <IconComponent size={32} className="text-base-content" />

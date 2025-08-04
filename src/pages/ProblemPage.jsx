@@ -5,7 +5,6 @@ import { useParams } from 'react-router';
 import axiosClient from "../utils/axiosClien";
 import SubmissionHistory from '../components/SubmissionHistory';
     
-    
 const ProblemPage=()=>{
     const [problem, setProblem] = useState(null);
     const [selectedLanguage, setSelectedLanguage] = useState('javascript');
@@ -18,7 +17,6 @@ const ProblemPage=()=>{
     const editorRef = useRef(null);
     let {problemId}  = useParams();
     const { handleSubmit } = useForm();
-
 
   // Fetch problem data
     useEffect(() => {
@@ -222,10 +220,6 @@ const ProblemPage=()=>{
                 </div>
             </div>
 
-
-
-
-
           {/* Right Panel */}
             <div className="w-1/2 flex flex-col">
               {/* Right Tabs */}
@@ -394,6 +388,5 @@ const ProblemPage=()=>{
         </div>
     );  
 };      
-
 
 export   default ProblemPage;

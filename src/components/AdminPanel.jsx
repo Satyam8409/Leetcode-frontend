@@ -4,7 +4,6 @@ import { z } from 'zod';
 import axiosClient from '../utils/axiosClien';
 import { useNavigate } from 'react-router';
 
-
 //SchemaValidation with zod
 const problemSchema=z.object({
     title: z.string().min(1, 'Title is required'),
@@ -40,9 +39,7 @@ const problemSchema=z.object({
             completeCode: z.string().min(1, 'Complete code is required')
         })
     ).length(3, 'All three languages required')
-    
 })
-
 
 export default function AdminPanel(){
     const navigate = useNavigate();

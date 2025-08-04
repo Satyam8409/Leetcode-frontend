@@ -129,16 +129,6 @@ function Signup() {
 export default Signup;
 
 
-/*NavLink:-User clicks
-Renders a clickable link (<a>)
-User clicks to navigate
-Used in menus, buttons, etc.
-
-Navigate:-Instant redirect
-Automatically redirects as soon as it renders
-No click needed
-Used for programmatic redirects (e.g., after login)
-*/
 
 
 
@@ -147,72 +137,4 @@ Used for programmatic redirects (e.g., after login)
 
 
 
-
-
-
-
-
-/*khud se likha hua code without css
-const signupSchema=z.object({
-    firstName:z.string().min(3,'atleast 3 character').max(7,'atmost 7 character'),
-    emailId:z.string().email(),
-    password:z.string().min(8,'atleat 8 character'),
-})
-
-export default function Signup(){
-    const {register, handleSubmit, formState: { errors },} = useForm({resolver:zodResolver(signupSchema)}); //signupSchema ko isse trika se attach krana hota hai form se zodResolver ke help se
-
-    const submittedData=(data)=>{
-        console.log(data)
-    }
-
-    return(
-        <>
-            <form onSubmit={handleSubmit(submittedData)}>
-                <input {...register('firstName')} placeholder='enter first name'/> 
-                {errors.firstName && <span>{errors.firstName.message}</span>}
-                <input {...register('emailId')} placeholder='enter your email'/>
-                {errors.emailId && <span>{errors.emailId.message}</span>}
-                <input {...register('password')} type='password' placeholder='enter password'/>
-                {errors.password && <span>{errors.password.message}</span>}
-                <button className='btn btn-primary' type='submit'>Submit</button>
-            </form>
-        </>
-    )
-     
-}
-*/
-
-
-
-/*//benefit of react form over normal form
-
-import { useState } from "react"
-
-export default function Signup(){
-    const [name,setName]=useState('');
-    const [email,setEmail]=useState('');
-    const [password,setPassword]=useState('');
-
-    function handleSubmit(e){
-        e.preventDefault();
-        console.log(name, email, password);
-
-        //yaha pe khud se validation krna prega normal form use krne se etc 
-        // to ye na krna pre uske liye react form ka use krge isme state var banane ka need nhi hai, also validation ke liye zord use kr skte hia 
-
-    }
-
-    return(
-        <>
-            <form onSubmit={handleSubmit}>
-                <input type="text" placeholder="enter your name" name="firstName" value={name} onChange={(e)=>setName(e.target.value)} />
-                <input type="email" placeholder="enter your email id" name="emailId" value={email} onChange={(e)=>setEmail(e.target.value)} />
-                <input type="password" placeholder="enter your password" name="password" value={password} onChange={(e)=>setPassword(e.target.value)} />
-                <button type="submit">Submit</button>
-            </form>
-        </>
-    )
-}
-*/
 

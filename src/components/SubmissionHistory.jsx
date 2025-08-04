@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react';
 import axiosClient from '../utils/axiosClien';
 
-
-
 const SubmissionHistory = ({ problemId }) => {
   const [submissions, setSubmissions] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -113,12 +111,7 @@ const SubmissionHistory = ({ problemId }) => {
                     <td className="font-mono">{sub.testCasesPassed}/{sub.testCasesTotal}</td>
                     <td>{formatDate(sub.createdAt)}</td>
                     <td>
-                      <button 
-                        className="btn btn-s btn-outline"
-                        onClick={() => setSelectedSubmission(sub)}
-                      >
-                        Code
-                      </button>
+                      <button className="btn btn-s btn-outline" onClick={() => setSelectedSubmission(sub)}>Code </button>
                     </td>
                   </tr>
                 ))}
@@ -170,12 +163,7 @@ const SubmissionHistory = ({ problemId }) => {
             </pre>
             
             <div className="modal-action">
-              <button 
-                className="btn"
-                onClick={() => setSelectedSubmission(null)}
-              >
-                Close
-              </button>
+              <button className="btn" onClick={() => setSelectedSubmission(null)}> Close </button>
             </div>
           </div>
         </div>

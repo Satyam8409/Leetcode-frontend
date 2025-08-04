@@ -6,7 +6,6 @@ const AdminDelete = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-
   useEffect(() => {
     fetchProblems();
   }, []);
@@ -26,7 +25,6 @@ const AdminDelete = () => {
 
   const handleDelete = async (id) => {
     if (!window.confirm('Are you sure you want to delete this problem?')) return;
-    
     try {
       await axiosClient.delete(`/problem/delete/${id}`);
       setProblems(problems.filter(problem => problem._id !== id));
@@ -35,7 +33,6 @@ const AdminDelete = () => {
       console.error(err);
     }
   };
-
 
   if (loading) {
     return (
@@ -81,13 +78,7 @@ const AdminDelete = () => {
                 <th>{index + 1}</th>
                 <td>{problem.title}</td>
                 <td>
-                  <span className={`badge ${
-                    problem.difficulty === 'Easy' 
-                      ? 'badge-success' 
-                      : problem.difficulty === 'Medium' 
-                        ? 'badge-warning' 
-                        : 'badge-error'
-                  }`}>
+                  <span className={`badge ${problem.difficulty === 'Easy' ? 'badge-success' : problem.difficulty === 'Medium' ? 'badge-warning' : 'badge-error'}`}>
                     {problem.difficulty}
                   </span>
                 </td>
@@ -98,12 +89,7 @@ const AdminDelete = () => {
                 </td>
                 <td>
                   <div className="flex space-x-2">
-                    <button 
-                      onClick={() => handleDelete(problem._id)}
-                      className="btn btn-sm btn-error"
-                    >
-                      Delete
-                    </button>
+                    <button onClick={() => handleDelete(problem._id)} className="btn btn-sm btn-error"> Delete</button>
                   </div>
                 </td>
               </tr>
