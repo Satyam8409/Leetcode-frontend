@@ -34,10 +34,7 @@ const ProblemPage=()=>{
                     return false;
                 })?.initialCode || 'Hello';
 
-                console.log(initialCode);
                 setProblem(response.data);
-                // console.log(response.data.startCode);
-                console.log(initialCode);
                 setCode(initialCode);
                 setLoading(false);
 
@@ -58,8 +55,8 @@ const ProblemPage=()=>{
         }
     }, [selectedLanguage, problem]);
 
-    const handleEditorChange = (value) => {
-        setCode(value || '');
+    const handleEditorChange = (valueNew) => {
+        setCode(valueNew || '');
     };
     const handleEditorDidMount = (editor) => {
         editorRef.current = editor;
