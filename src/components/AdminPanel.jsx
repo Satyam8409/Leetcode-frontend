@@ -55,7 +55,17 @@ export default function AdminPanel(){
             navigate('/');
         } 
         catch(error){
-            alert(`Error: ${error.response?.data?.message || error.message}`);
+            const responseError = error.response?.data;
+            const message = typeof responseError === 'string'
+                ? responseError
+                : responseError?.error || responseError?.message || error.message;
+            const details = responseError?.details;
+            const detailMessage = details
+                ? [details.status, details.message, details.compileOutput, details.stderr]
+                    .filter(Boolean)
+                    .join(': ')
+                : '';
+            alert(`Error: ${message}${detailMessage ? ` - ${detailMessage}` : ''}`);
         }
     };
 
